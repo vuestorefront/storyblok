@@ -32,7 +32,7 @@ export const getContent = async (
     return Logger.warn(`${errorMessage.GENERAL} ${errorMessage.WRONG_CUSTOM}`)
   }
   try {
-    const { data }: { data: ApiResponse } = await Storyblok.get(
+    const { data, perPage, total }: { data: ApiResponse, perPage: number, total: number } = await Storyblok.get(
       `cdn/stories/${id || custom ? '' : url}`,
       {
         ...((!cache ? { cv: nanoid() } : {}) as any),
@@ -42,9 +42,13 @@ export const getContent = async (
         version,
       },
     )
-    return data.story
+    const extractedComponents = data.story
       ? extractNestedComponents(data.story)
-      : extractNestedComponents({ content: data.stories }, true) || []
+      : extractNestedComponents({ content: data.stories }, true)
+
+    if (perPage !== undefined) extractedComponents.perPage = perPage
+    if (total !== undefined) extractedComponents.total = total
+    return extractedComponents
   } catch (error) {
     Logger.warn(`${errorMessage.GENERAL}`, error)
     return []

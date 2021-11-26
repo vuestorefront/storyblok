@@ -30,7 +30,7 @@ export const extractNestedComponents: (
     | Content[]
     | Content,
   stories?: boolean,
-) => void | boolean = (data: Content, stories = false) => {
+) => Record<string, any> = (data: Content, stories = false) => {
   if (data.content) {
     extractNestedComponents(data.content)
     if (Array.isArray(data.content)) {
