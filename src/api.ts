@@ -46,8 +46,10 @@ export const getContent = async (
       ? extractNestedComponents(data.story)
       : extractNestedComponents({ content: data.stories }, true)
 
-    if (perPage !== undefined) extractedComponents.perPage = perPage
-    if (total !== undefined) extractedComponents.total = total
+    if (perPage !== undefined)
+      (extractedComponents as Record<string, any>).perPage = perPage
+    if (total !== undefined)
+      (extractedComponents as Record<string, any>).total = total
     return extractedComponents
   } catch (error) {
     Logger.warn(`${errorMessage.GENERAL}`, error)
