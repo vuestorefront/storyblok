@@ -10,6 +10,7 @@ export interface ContentSearchParams {
   custom?: {} | CustomSearch
   locale?: string
   relations?: string
+  links?: string
 }
 export type Version = 'draft' | 'published'
 export interface CustomSearch {

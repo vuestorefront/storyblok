@@ -13,6 +13,7 @@ export const getContent = async (
     cache = true,
     locale,
     relations,
+    links,
     version = 'published',
   }: ContentSearchParams,
 ): Promise<[] | void | {}> => {
@@ -37,6 +38,7 @@ export const getContent = async (
       {
         ...((!cache ? { cv: nanoid() } : {}) as any),
         ...resolveCustomSearch,
+        resolve_links: links,
         resolve_relations: relations,
         language: locale,
         version,
