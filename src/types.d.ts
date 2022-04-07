@@ -1,8 +1,18 @@
-import { StoryblokCache } from 'storyblok-js-client'
+import Storyblok, { StoryblokConfig } from 'storyblok-js-client'
 
-export interface ContentSearchParams {
+export interface StoryblokClient {
+  new(config: StoryblokConfig): Storyblok;
+}
+export interface ApiContextConfig {
   token: string
-  cacheProvider: StoryblokCache
+  cacheProvider?: 'memory'
+}
+export interface ApiContext {
+  client: StoryblokClient
+  config: ApiContextConfig
+}
+
+export interface ContentSearchParams extends ApiContextConfig {
   cache?: boolean
   version?: Version
   id?: string
@@ -15,10 +25,6 @@ export type Version = 'draft' | 'published'
 export interface CustomSearch {
   field: string
   value: string
-}
-export interface ApiContext {
-  client: any
-  config: ContentSearchParams
 }
 export interface Content {
   content: any
@@ -37,4 +43,21 @@ export interface Component {
 }
 export interface Image {
   image: string
+}
+
+export interface DatasourceParams extends ApiContextConfig {
+  cache?: boolean
+  slug: string
+  dimension?: string
+  page?: number
+  perPage?: number
+}
+export interface Datasource {
+  id: String
+  name: String
+  value: String
+  dimension?: String
+}
+export interface DatasourceResponse {
+  datasource_entries?: Datasource[]
 }

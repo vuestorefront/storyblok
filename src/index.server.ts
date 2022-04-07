@@ -2,7 +2,7 @@ import { apiClientFactory } from '@vue-storefront/core'
 import { ApiContext, ContentSearchParams } from './types'
 import StoryblokClient from 'storyblok-js-client'
 
-import { getContent } from './api'
+import { getContent, getDatasource } from './api'
 
 const setup = ({ token, cacheProvider }: ContentSearchParams): ApiContext => {
   return {
@@ -13,11 +13,11 @@ const setup = ({ token, cacheProvider }: ContentSearchParams): ApiContext => {
     },
   }
 }
-
 const { createApiClient } = apiClientFactory({
   onCreate: setup,
   api: {
     getContent,
+    getDatasourceEntries: getDatasource,
   },
 } as any)
 

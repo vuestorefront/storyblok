@@ -1,5 +1,5 @@
 import { IntegrationContext } from '@vue-storefront/core'
-import { ContentSearchParams } from './types'
+import { ContentSearchParams, DatasourceParams } from './types'
 
 declare module '@vue-storefront/core' {
   export interface Context {
@@ -8,6 +8,7 @@ declare module '@vue-storefront/core' {
       ContentSearchParams,
       {
         getContent: (params: ContentSearchParams) => void
+        getDatasourceEntries: (params: DatasourceParams) => void
       }
     >
   }
