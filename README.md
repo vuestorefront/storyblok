@@ -18,13 +18,13 @@ Full documentation can be found [here](https://docs.vuestorefront.io/storyblok).
 Install module into your app.
 
 ```bash
-npm install @vue-storefront/storyblok storyblok-vue  --save
+npm install @vue-storefront/storyblok @storyblok/vue-2@1.3.1  --save
 ```
 
 or
 
 ```bash
-yarn add @vue-storefront/storyblok storyblok-vue
+yarn add @vue-storefront/storyblok @storyblok/vue-2@1.3.1
 ```
 
 Check the [documentation](https://docs.vuestorefront.io/storyblok) for all the instructions and guidelines.
