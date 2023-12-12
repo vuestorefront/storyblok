@@ -39,20 +39,19 @@
     "@commitlint/cli": "^13.2.1",
     "@commitlint/config-conventional": "^13.2.0",
     "@jest/globals": "^27.2.5",
-    "@typescript-eslint/eslint-plugin": "^4.33.0",
-    "@typescript-eslint/parser": "^4.33.0",
     "eslint": "^7.32.0",
-    "eslint-config-prettier": "^7.2.0",
-    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^7.19.1",
     "husky": "^8.0.3",
     "jest": "^27.2.5",
     "lint-staged": "^11.2.3",
     "prettier": "^2.4.1",
     "rollup": "^2.58.0",
-    "rollup-plugin-typescript2": "^0.35.0",
     "ts-jest": "^29.1.0",
-    "typescript": "^4"
+    "typescript": "^4",
+    "@vue-storefront/eslint-config-integrations": "^0.0.19",
+    "@vue-storefront/integrations-tsconfig": "^0.0.4",
+    "@vue-storefront/rollup-config": "^0.0.6",
+    "@vue/eslint-config-typescript": "^7.0.0"
   },
   "peerDependencies": {
     "@storyblok/vue-2": "^3.0.17"
