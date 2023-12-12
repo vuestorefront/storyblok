@@ -1,11 +1,3 @@
-declare global {
-  interface Window {
-    StoryblokBridge: any
-  }
-}
-
-const { StoryblokBridge } = window
-
 export const storyblokBridge = (
   content = { content: {} },
   events = ['change', 'input'],
@@ -13,6 +5,7 @@ export const storyblokBridge = (
 ) => {
   if (window) {
     // eslint-disable-next-line
+    // @ts-ignore
     const instance = new StoryblokBridge({
       resolveRelations: relations,
     })
