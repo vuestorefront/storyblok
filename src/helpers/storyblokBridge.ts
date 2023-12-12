@@ -1,3 +1,11 @@
+declare global {
+  interface Window {
+    StoryblokBridge: any
+  }
+}
+
+const { StoryblokBridge } = window
+
 export const storyblokBridge = (
   content = { content: {} },
   events = ['change', 'input'],
